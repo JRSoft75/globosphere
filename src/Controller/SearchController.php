@@ -15,11 +15,15 @@ use App\Form\UserSearchType;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\ElasticaBundle\Manager\RepositoryManagerInterface;
 use FOS\ElasticaBundle\Finder\PaginatedFinderInterface;
+use Symfony\Component\Routing\Annotation\Route;
+use Twig\Environment;
+use FOS\ElasticaBundle\Manager\RepositoryManager;
 
 
 class SearchController extends AbstractController
 {
     private $repositoryManager;
+
     public function __construct(RepositoryManagerInterface $repositoryManager)
     {
         $this->repositoryManager = $repositoryManager;
@@ -54,20 +58,32 @@ class SearchController extends AbstractController
 //        return $this->json($response->getContent(), $response->getStatus());
 //    }
 
-
+    /**
+     * @Route("/", name="blog_list")
+     */
     public function indexAction(Request $request): Response
     {
         $userSearch = new User();
 
         $form = $this->createForm(UserSearchType::class, $userSearch);
         $form->handleRequest($request);
-
+//        if($request->getMethod() === 'POST'){
+        dump('getMethod='.$request->getMethod());
+        dump('isSubmitted='.$form->isSubmitted());
         $userSearch = $form->getData();
+        dump('$userSearch=');
         dump($userSearch);
 
 //        $elasticaManager = $this->get('fos_elastica.manager');
+//        $elasticaManager = $this->container->get('fos_elastica.manager');
+//        $results = $this->repositoryManager->getRepository('User')->searchUser($userSearch);
+//        $results = $this->repositoryManager->getRepository('user')->searchUser((array)$filter);
+
+
+//        $elasticaManager = $this->get('fos_elastica.manager');
 //        $results = $elasticaManager->getRepository('user')->searchUser($userSearch);
-        $results = $this->repositoryManager->getRepository('user')->searchUser($userSearch);
+        $results = $this->repositoryManager->getRepository(User::class)->searchUser($userSearch);
+        dump($results);
         return $this->render('user/search.html.twig', [
             'form' => $form->createView(),
             'filter' => $userSearch,

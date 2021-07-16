@@ -1,8 +1,9 @@
 # Read the documentation: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/doc/setup.md
 fos_elastica:
-    default_manager: mysql
+#    default_manager: mysql
     clients:
-        default: { url: '%env(ELASTICSEARCH_URL)%' }
+#        default: { url: '%env(ELASTICSEARCH_URL)%' }
+        default: { host: '%env(ELASTICSEARCH_HOST)%', port: '%env(ELASTICSEARCH_PORT)%' }
     indexes:
         user:
             persistence:
@@ -13,7 +14,7 @@ fos_elastica:
                 finder: ~
                 repository: App\Repository\SearchRepository
             properties:
-                id: ~
+#                id: ~
                 username: ~
                 firstname: ~
                 lastname: ~

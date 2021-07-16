@@ -17,8 +17,9 @@ class SearchRepository extends Repository
     public function searchUser(User $search)
     {
         $query = new BoolQuery();
+
         if ($search->getUsername() != null && $search->getUsername() != '') {
-            $query->addMust(new Terms('username', [$search->getUsername()]));
+            $query->addShould(new Terms('username', [$search->getUsername()]));
         }
         if ($search->getFirstname() != null && $search->getFirstname() != '') {
             $query->addMust(new Terms('firstname', [$search->getFirstname()]));
@@ -31,8 +32,9 @@ class SearchRepository extends Repository
         }
 
         $query = Query::create($query);
-
-        return $this->find($query);
+dump('$query');
+dump($query);
+        return $this->find($query,20);
     }
 
 }

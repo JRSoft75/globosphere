@@ -10,6 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\FormInterface;
 
 
 class UserSearchType extends AbstractType
@@ -29,7 +30,8 @@ class UserSearchType extends AbstractType
     {
         $resolver->setDefaults([
                                    'csrf_protection' => false,
-                                   'data_class' => 'App\Entity\User'
+                                   'data_class' => 'App\Entity\User',
+                                   'method' => 'GET',
                                ]);
     }
 }

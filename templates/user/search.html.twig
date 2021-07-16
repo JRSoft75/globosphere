@@ -1,20 +1,23 @@
 {% extends "base.html.twig" %}
 {% block body %}
     <h1>Фильтр</h1>
-    <form>
-        <div>username</div>
-        <input type="text" value="{{ filter.username }}" name="filter[username]"/>
-        <div>firstname</div>
-        <input type="text" value="{{ filter.firstname }}" name="filter[firstname]"/>
-        <div>lastname</div>
-        <input type="text" value="{{ filter.lastname }}" name="filter[lastname]"/>
-        <div>email</div>
-        <input type="text" value="{{ filter.email }}" name="filter[email]"/>
+{#    <form name="form">#}
+{#        <div>username</div>#}
+{#        <input type="text" value="{{ filter.username }}" name="form[username]"/>#}
+{#        <div>firstname</div>#}
+{#        <input type="text" value="{{ filter.firstname }}" name="form[firstname]"/>#}
+{#        <div>lastname</div>#}
+{#        <input type="text" value="{{ filter.lastname }}" name="form[lastname]"/>#}
+{#        <div>email</div>#}
+{#        <input type="text" value="{{ filter.email }}" name="form[email]"/>#}
 
-        <input type="submit" />
-    </form>
+{#        <button type="submit" name="form[submit]">Submit</button>#}
+{#    </form>#}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
 
-    <h1>Товары</h1>
+    <h1>Люди</h1>
 
     <table>
         {% for user in users %}
