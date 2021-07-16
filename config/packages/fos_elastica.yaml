@@ -15,8 +15,15 @@ fos_elastica:
                 repository: App\Repository\SearchRepository
             properties:
 #                id: ~
-                username: ~
+                username: { boost: 10, analyzer: my_analyzer }
                 firstname: ~
                 lastname: ~
                 email: ~
+            settings:
+                index:
+                    analysis:
+                        analyzer:
+                            my_analyzer:
+                                type: snowball
+                                filter: []
 

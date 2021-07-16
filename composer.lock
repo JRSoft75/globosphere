@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96d6271ce29c49dd2cfc0e3ed14ebeee",
+    "content-hash": "f51333c254421474593ff0c521e84797",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1851,40 +1851,44 @@
         },
         {
             "name": "friendsofsymfony/elastica-bundle",
-            "version": "v6.0.0-beta3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSElasticaBundle.git",
-                "reference": "7525233c92b72168ae0b8ae66149bbbdf8c90de4"
+                "reference": "6ce5dd6931fe126ede134037b45652727b46aa0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSElasticaBundle/zipball/7525233c92b72168ae0b8ae66149bbbdf8c90de4",
-                "reference": "7525233c92b72168ae0b8ae66149bbbdf8c90de4",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSElasticaBundle/zipball/6ce5dd6931fe126ede134037b45652727b46aa0b",
+                "reference": "6ce5dd6931fe126ede134037b45652727b46aa0b",
                 "shasum": ""
             },
             "require": {
-                "pagerfanta/pagerfanta": "^2.0",
-                "php": "^7.2",
+                "pagerfanta/pagerfanta": "^2.4 || ^3.0",
+                "php": "^7.2 || ^8.0",
                 "psr/log": "^1.0",
-                "ruflin/elastica": "^7.0",
+                "ruflin/elastica": "^7.1",
                 "symfony/console": "^4.4 || ^5.1",
                 "symfony/dependency-injection": "^4.4 || ^5.1",
                 "symfony/framework-bundle": "^4.4 || ^5.1",
                 "symfony/property-access": "^4.4 || ^5.1"
             },
             "require-dev": {
-                "doctrine/doctrine-bundle": "^2.0",
+                "doctrine/doctrine-bundle": "^2.1.1",
                 "doctrine/mongodb-odm-bundle": "^4.0",
-                "doctrine/orm": "^2.7",
-                "doctrine/persistence": "^1.3.4",
+                "doctrine/orm": "^2.8",
                 "doctrine/phpcr-bundle": "^1.3 || ^2.0",
                 "doctrine/phpcr-odm": "^1.4",
                 "friendsofphp/php-cs-fixer": "^2.2",
                 "jackalope/jackalope-doctrine-dbal": "^1.2",
-                "jms/serializer-bundle": "^2.3 || ^3.5",
-                "knplabs/knp-components": "^2.3",
-                "phpunit/phpunit": "^8.5",
+                "jms/serializer": "^3.8",
+                "jms/serializer-bundle": "^3.5",
+                "knplabs/knp-components": "^2.3 || ^3.0",
+                "pagerfanta/doctrine-mongodb-odm-adapter": "^2.4 || ^3.0",
+                "pagerfanta/doctrine-orm-adapter": "^2.4 || ^3.0",
+                "pagerfanta/doctrine-phpcr-odm-adapter": "^2.4 || ^3.0",
+                "phpspec/prophecy-phpunit": "^1.1 || ^2.0",
+                "phpunit/phpunit": "^8.5 || ^9.3",
                 "symfony/expression-language": "^4.4 || ^5.1",
                 "symfony/messenger": "^4.4 || ^5.1",
                 "symfony/serializer": "^4.4 || ^5.1",
@@ -1896,6 +1900,7 @@
                 "enqueue/elastica-bundle": "For populating Elasticsearch indexes asynchronously and using significanly less resources. Uses Enqueue.",
                 "symfony/messenger": "For populating Elasticsearch indexes asynchronously and using significanly less resources."
             },
+            "default-branch": true,
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1940,9 +1945,9 @@
             ],
             "support": {
                 "issues": "https://github.com/FriendsOfSymfony/FOSElasticaBundle/issues",
-                "source": "https://github.com/FriendsOfSymfony/FOSElasticaBundle/tree/v6.0.0-beta3"
+                "source": "https://github.com/FriendsOfSymfony/FOSElasticaBundle/tree/master"
             },
-            "time": "2020-09-28T13:30:06+00:00"
+            "time": "2021-05-24T15:36:16+00:00"
         },
         {
             "name": "laminas/laminas-code",
@@ -6354,7 +6359,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "friendsofsymfony/elastica-bundle": 10
+        "friendsofsymfony/elastica-bundle": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
