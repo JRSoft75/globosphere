@@ -68,10 +68,7 @@ class SearchController extends AbstractController
         $form = $this->createForm(UserSearchType::class, $userSearch);
         $form->handleRequest($request);
 //        if($request->getMethod() === 'POST'){
-        dump('getMethod='.$request->getMethod());
-        dump('isSubmitted='.$form->isSubmitted());
         $userSearch = $form->getData();
-        dump('$userSearch=');
         dump($userSearch);
 
 //        $elasticaManager = $this->get('fos_elastica.manager');
@@ -83,7 +80,6 @@ class SearchController extends AbstractController
 //        $elasticaManager = $this->get('fos_elastica.manager');
 //        $results = $elasticaManager->getRepository('user')->searchUser($userSearch);
         $results = $this->repositoryManager->getRepository(User::class)->searchUser($userSearch);
-        dump($results);
         return $this->render('user/search.html.twig', [
             'form' => $form->createView(),
             'filter' => $userSearch,

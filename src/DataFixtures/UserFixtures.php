@@ -11,7 +11,7 @@ class UserFixtures extends BaseFixture
 {
     public function loadData(ObjectManager $manager)
     {
-        $this->createMany(User::class, 100, function(User $user, $count) {
+        $this->createMany(User::class, 5000, function(User $user, $count) {
             $user->setUsername('Username_'.$count)
                 ->setFirstname('Firstname'.$this->faker->firstName)
                 ->setLastname('Lastname'.$this->faker->lastName)

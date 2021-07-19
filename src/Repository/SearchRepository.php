@@ -19,35 +19,44 @@ class SearchRepository extends Repository
         $query = new BoolQuery();
 
         if ($search->getUsername() != null && $search->getUsername() != '') {
-            $fieldQuery = new \Elastica\Query\MatchQuery();
-//            $fieldQuery->setFieldQuery('username', '*'.$search->getUsername().'*');
-            $fieldQuery->setFieldParam('username', 'analyzer', 'my_analyzer');
-            $query->addShould($fieldQuery);
+//            $fieldQuery = new \Elastica\Query\MatchQuery();
+            $fieldQuery = new \Elastica\Query\QueryString();
+            $fieldQuery->setDefaultField('username');
+            $fieldQuery->setQuery( '*'.$search->getUsername().'*');
+            $query->addMust($fieldQuery);
 //            $query->addMust(new Terms('username', [$search->getUsername()]));
         }
         if ($search->getFirstname() != null && $search->getFirstname() != '') {
-            $fieldQuery = new \Elastica\Query\MatchQuery();
-            $fieldQuery->setFieldQuery('firstname', '*'.$search->getFirstname().'*');
-            $query->addShould($fieldQuery);
+//            $fieldQuery = new \Elastica\Query\SimpleQueryString('*'.$search->getFirstname().'*',['firstname']);
+//            $fieldQuery->setFieldQuery('firstname', '*'.$search->getFirstname().'*');
+            $fieldQuery = new \Elastica\Query\QueryString();
+            $fieldQuery->setDefaultField('firstname');
+            $fieldQuery->setQuery( '*'.$search->getFirstname().'*');
+            $query->addMust($fieldQuery);
 //            $query->addMust(new Terms('firstname', [$search->getFirstname()]));
+
         }
         if ($search->getLastname() != null && $search->getLastname() != '') {
-            $fieldQuery = new \Elastica\Query\MatchQuery();
-            $fieldQuery->setFieldQuery('lastname', $search->getLastname());
-            $query->addShould($fieldQuery);
+//            $fieldQuery = new \Elastica\Query\MatchQuery();
+//            $fieldQuery->setFieldQuery('lastname', $search->getLastname());
+            $fieldQuery = new \Elastica\Query\QueryString();
+            $fieldQuery->setDefaultField('lastname');
+            $fieldQuery->setQuery( '*'.$search->getLastname().'*');
+            $query->addMust($fieldQuery);
 //            $query->addMust(new Terms('lastname', [$search->getLastname()]));
         }
         if ($search->getEmail() != null && $search->getEmail() != '') {
-            $fieldQuery = new \Elastica\Query\MatchQuery();
-            $fieldQuery->setFieldQuery('email', '*'.$search->getEmail().'*');
-            $query->addShould($fieldQuery);
+//            $fieldQuery = new \Elastica\Query\MatchQuery();
+//            $fieldQuery->setFieldQuery('email', '*'.$search->getEmail().'*');
+            $fieldQuery = new \Elastica\Query\QueryString();
+            $fieldQuery->setDefaultField('email');
+            $fieldQuery->setQuery( '*'.$search->getEmail().'*');
+            $query->addMust($fieldQuery);
 //            $query->addMust(new Terms('email', [$search->getEmail()]));
         }
 
         $query = Query::create($query);
-dump('$query');
-dump($query);
-        return $this->find($query,20);
+        return $this->find($query,100);
     }
 
 }

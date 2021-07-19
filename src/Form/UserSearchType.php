@@ -21,7 +21,7 @@ class UserSearchType extends AbstractType
             ->add('username', TextType::class, ['required' => false])
             ->add('firstname', TextType::class, ['required' => false])
             ->add('lastname', TextType::class, ['required' => false])
-            ->add('email', EmailType::class, ['required' => false])
+            ->add('email', TextType::class, ['required' => false])
             ->add('submit', SubmitType::class)
         ;
     }
